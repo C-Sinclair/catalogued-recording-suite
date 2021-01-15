@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { connect } from "./socket.js";
   import { display } from './display.js'
+  import Carrot from './Carrot.svelte'
 
   onMount(() => {
     connect()
@@ -27,23 +28,12 @@
     color: darkgoldenrod;
     font-size: 3em;
   }
-  #carrot {
-    transition: all 1s linear ;
-    animation: carrot-spin infinite 0.4s;
-  }
-  @keyframes carrot-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 </style>
+
+{#if $display.carrot}
+  <Carrot />
+{/if}
 
 <section>
   <h1>Catalogued.</h1>
-  {#if $display.carrot}
-    <img id="carrot" src="/carrot.png" />
-  {/if}
 </section>
