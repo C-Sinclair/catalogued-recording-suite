@@ -8,6 +8,7 @@
   import IndexCoaster from './characters/IndexCoaster.svelte'
   import New from './characters/New.svelte'
   import CustomerServices from './characters/CustomerServices.svelte'
+  import Argo from './characters/Argo.svelte'
 
   onMount(() => {
     connect()
@@ -36,6 +37,10 @@
 
 {#if $display.customerServices}
   <CustomerServices />
+{/if}
+
+{#if $display.argo}
+  <Argo />
 {/if}
 
 <BottomBar />
