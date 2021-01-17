@@ -1,4 +1,5 @@
 import { display } from "./display.js";
+import { statesEntries } from "./states.js";
 
 export const connect = () => {
   const socket = new WebSocket(`ws://localhost:8083/ws/overlay`);
@@ -13,12 +14,10 @@ export const connect = () => {
   });
 };
 
-const handler = (msg) => (state) => {
-  switch (msg.data) {
-    case "PLAY_CARROT":
-      return { ...state, carrot: true };
-    default:
-      console.log(`Unhandled msg`, msg);
-      return state;
-  }
-};
+const handler = ({ data }) => (state) =>
+  statesEntries.reduce((acc, [name, { msg }]) => {
+    if (data === msg) {
+      return { ...acc, [name]: true };
+    }
+    return acc;
+  }, state);

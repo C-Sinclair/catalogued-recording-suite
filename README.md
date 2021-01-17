@@ -8,7 +8,7 @@ Body tag is given `background-color: transparent` so that the page can sit in fr
 
 ## TODO
 
-- [ ] style the bottom bar
+- [x] style the bottom bar
 - [ ] Cup of tea sat on top of the bottom bar
 - [ ] spinning carrot - good test of websocket events
 - [ ] Transitions/animations triggered by web socket events

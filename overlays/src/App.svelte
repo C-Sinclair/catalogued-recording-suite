@@ -1,8 +1,12 @@
 <script>
   import { onMount } from "svelte";
-  import { connect } from "./socket.js";
-  import { display } from './display.js'
-  import Carrot from './Carrot.svelte'
+  import { connect } from "./state/socket.js";
+  import { display } from './state/display.js'
+
+  import BottomBar from './components/BottomBar.svelte'
+  import Carrot from './characters/Carrot.svelte'
+  import IndexCoaster from './characters/IndexCoaster.svelte'
+  import New from './characters/New.svelte'
 
   onMount(() => {
     connect()
@@ -15,25 +19,18 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
   }
-  section {
-    margin-top:100px;
-    padding: 20px;
-    background-color: plum;
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-  }
-  h1 {
-    font-family: 'Raleway', sans-serif;
-    color: darkgoldenrod;
-    font-size: 3em;
-  }
 </style>
 
 {#if $display.carrot}
   <Carrot />
 {/if}
 
-<section>
-  <h1>Catalogued.</h1>
-</section>
+{#if $display.indexCoaster}
+  <IndexCoaster />
+{/if}
+
+{#if $display.showNew}
+  <New />
+{/if}
+
+<BottomBar />
