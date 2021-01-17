@@ -7,6 +7,7 @@
   import Carrot from './characters/Carrot.svelte'
   import IndexCoaster from './characters/IndexCoaster.svelte'
   import New from './characters/New.svelte'
+  import CustomerServices from './characters/CustomerServices.svelte'
 
   onMount(() => {
     connect()
@@ -31,6 +32,10 @@
 
 {#if $display.showNew}
   <New />
+{/if}
+
+{#if $display.customerServices}
+  <CustomerServices />
 {/if}
 
 <BottomBar />

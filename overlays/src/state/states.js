@@ -15,6 +15,10 @@ export const states = {
     msg: "PLAY_NEW",
     resetTime: 4000,
   },
+  customerServices: {
+    msg: "PLAY_CUSTOMER_SERVICES",
+    resetTime: 3200,
+  },
 };
 
 export const statesEntries = Object.entries(states);
